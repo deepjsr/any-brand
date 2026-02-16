@@ -2,8 +2,8 @@ import { Search } from 'lucide-react';
 import React from 'react';
 import { Button } from "@/Components/ui/button";
 import { Badge } from "@/Components/ui/badge";
-import { Combobox, ComboboxInput, ComboboxContent, ComboboxEmpty, ComboboxList, ComboboxItem } from "@/Components/ui/combobox";
 import { BiCartAdd, BiSolidHeart } from 'react-icons/bi';
+import { Combobox, ComboboxContent, ComboboxEmpty, ComboboxInput, ComboboxItem, ComboboxList } from '../ui/combobox';
 
 
 function Header() {
@@ -16,20 +16,16 @@ function Header() {
         <div className="max-w-7xl mx-auto px-4 py-4 flex items-center gap-6">
 
           {/* Logo */}
-          <div className="text-xl font-bold whitespace-nowrap">
-            BrandName
-            67
-          </div>
+          <div className="text-xl font-bold whitespace-nowrap">BrandName</div>
 
           {/* Search Bar */}
-          <div className="flex flex-1 items-center border rounded-md overflow-hidden">
+          <div className="flex flex-1 items-center  border rounded-md overflow-hidden">
             <input
               type="text"
               placeholder="Search for products..."
-              className="flex-1 px-4 py-2 text-sm outline-none"
+              className="flex-1 px-4 py-2 text-sm outline-none mx-1"
             />
-
-            <Combobox items={catagories}>
+            <Combobox items={catagories} className="border-none">
               <ComboboxInput placeholder="Select a category" />
               <ComboboxContent>
                 <ComboboxEmpty>No items found.</ComboboxEmpty>
@@ -43,38 +39,23 @@ function Header() {
               </ComboboxContent>
             </Combobox>
 
-            {/* <select title="Select Category" className="px-3 py-2 text-sm border-l outline-none bg-white">
-              <option>All Categories</option>
-              <option>Electronics</option>
-              <option>Men's Fashion</option>
-              <option>Laptops</option>
-              <option>Mobiles</option>
-              <option>Consumer Electronics</option>
-              <option>Televisions</option>
-              <option>Watches</option>
-              <option>Fashion</option>
-              <option>Backpacks</option>
-              <option>Tablets</option>
-              <option>Headphones</option>
-            </select> */}
             <Button className="px-4 py-2 bg-blue-600 text-white text-sm hover:bg-blue-700">
               <Search size={20} />
             </Button>
           </div>
 
           {/* Right Actions */}
-          <div className="flex items-end gap-4 text-sm whitespace-nowrap">
-            <Button variant="outline" className="flex items-center gap-1 px-2">
+          <div className="flex items-center gap-4 text-sm whitespace-nowrap">
+            <Button variant="outline" className="relative flex items-center gap-1 px-2">
               <BiSolidHeart className="w-5 h-5 text-red-600" />
-              Favorites
-              <Badge className="absolute top-16 right-55 bg-red-500 rounded-full">
-                9</Badge>
+              <span className="hidden sm:inline">Favorites</span>
+              <Badge className="absolute -top-2 -right-2 inline-flex items-center justify-center h-5 w-5 text-[10px] bg-red-500 text-white rounded-full">9</Badge>
             </Button>
-            <Button variant="outline" className="px-2">
-              <Badge className="absolute top-16 right-32 bg-red-500 rounded-full">
-                9</Badge>
+            <Button variant="outline" className="relative flex items-center gap-1 px-2">
               <BiCartAdd className="w-5 h-5" />
-              $0.00</Button>
+              <span className="hidden sm:inline">$0.00</span>
+              <Badge className="absolute -top-2 -right-2 inline-flex items-center justify-center h-5 w-5 text-[10px] bg-red-500 text-white rounded-full">9</Badge>
+            </Button>
           </div>
         </div>
       </div>
